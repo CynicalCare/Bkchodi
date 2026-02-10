@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will you be</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+
+      background-image: url("https://media.istockphoto.com/id/2199184946/photo/abstract-pink-watercolor-background-with-paint-spatters-and-copy-space.jpg?s=2048x2048&w=is&k=20&c=Rs1ae2MAfGoRwCSAhKE-Ew3EqIa_mR52JI7D5x2iCF0=");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    img {
+      width: 200px;
+      margin-bottom: 20px;
+      transition: width 0.3s ease;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin: 20px 0;
+      color: black;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background: #ff6f91;
+      color: white;
+    }
+
+    button:hover {
+      background: #ff4f78;
+    }
+
+    /* 🔥 SHAKE ANIMATIONS */
+    @keyframes shake {
+      0% { transform: translate(0); }
+      20% { transform: translate(-5px, 5px); }
+      40% { transform: translate(5px, -5px); }
+      60% { transform: translate(-5px, -5px); }
+      80% { transform: translate(5px, 5px); }
+      100% { transform: translate(0); }
+    }
+
+    .shake {
+      animation: shake 0.4s ease-in-out;
+    }
+
+    .text-shake {
+      animation: shake 0.3s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="container">
+    <img
+      id="gif"
+      src="https://media1.tenor.com/m/zOu8S0MKdWAAAAAC/please-cat.gif"
+      alt="GIF"
+    >
+
+    <h1 id="text">Will you be my Valentine?</h1>
+
+    <button id="btn" onclick="changeContent()">Eww. Not even if you were the last person alive on this planet!!!</button>
+  </div>
+
+  <script>
+    function changeContent() {
+      const gif = document.getElementById("gif");
+      const text = document.getElementById("text");
+      const button = document.getElementById("btn");
+      const container = document.getElementById("container");
+
+      gif.src =
+        "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW92eWo3M2hlNmluazlpdG0zank0dWRzaWE1Z29zNDl3bXBqdjFjdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BJI4fEY3UsAGfjxc5R/giphy.gif";
+
+      gif.style.width = "280px"; // 🎞️ bigger GIF
+
+      text.textContent = "THE WORST SHE COULD SAY WAS NO 😭💔🥀";
+      text.style.color = "maroon";
+
+      // 💥 Trigger shake
+      container.classList.add("shake");
+      text.classList.add("text-shake");
+
+      // Remove shake so it can replay if needed
+      setTimeout(() => {
+        container.classList.remove("shake");
+        text.classList.remove("text-shake");
+      }, 400);
+
+      button.style.display = "none";
+    }
+  </script>
+</body>
+</html>
